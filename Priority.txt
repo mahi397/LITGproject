@@ -1,0 +1,39 @@
+﻿Task
+	FEATURE
+	PRIORITY
+	1.
+	1. Ask mood - exist.io API - finds correlations b/w activities and moods
+2. Suggest, based on findings from exist.io, what you should do more and what less when you had a bad day/mood
+	High, 1
+	2. 
+	a.  Ask goals 
+b.  Suggest tracks based on the goals
+	High, 2
+	2b.
+	Inside tracks:
+* Tasks/Challenges - Daily | 30-day
+* Daily reminder at a time set by user
+	High, 2
+	3. 
+	Stats: 
+Show progress graphically
+* Show mood chart
+* Value score
+* Streak 
+	High, 3
+	4.
+	Suggest a movie/book/blog/video/music
+	Medium
+	5.
+	* Unlock badges/titles
+* Community 
+            i. Discussions
+               Share your views on Gratitude, Quotes,       Health etc etc
+            ii. Chat Groups
+                Discover and talk to people with similar     experiences. Anxiety & Depression, Health,  Interests etc etc
+
+
+	Low
+	6.
+	Guided Paths - audio lessons and activities created by psychologists to help you manage stress, anxiety or depression
+	Future scope
