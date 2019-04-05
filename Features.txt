@@ -1,0 +1,58 @@
+﻿FEATURES
+
+PRIORITY - HIGH,1
+1. a. Ask mood - exist.io API - finds correlations b/w activities and moods
+   b. Suggest, based on findings from exist.io, what you should do more and what less when you had a bad day/mood
+
+PRIORITY - HIGH,2 
+2. a. Ask goals 
+   b. Suggest tracks based on the goals (Research to cover max goals)
+
+        2b. Inside tracks, include:
+        i. A task(based on the goal) - a small, doable one with a target and then incentive(value score/badge)
+        ii. Give Reminders
+
+PRIORITY - HIGH,3
+3. Stats: Show progress graphically (CHART.JS, PLOTLY)
+
+PRIORITY - MEDIUM
+Suggest a movie/book/blog/video/music 
+
+PRIORITY - LOW
+v. Unlock badges/titles. Score them on Gratitude, Kindness, Empathy, Positivity etc based on the tasks completed.
+vi. Community 
+    i. Discussions
+       Share your views on Gratitude, Quotes, Health etc etc
+    ii. Chat Groups
+        Discover and talk to people with similar experiences. Anxiety & Depression, Health, Interests etc etc
+
+FUTURE SCOPE
+5. Guided Paths - audio lessons and activities created by psychologists to help you manage stress, anxiety or depression (refer Pacifica app)
+        
+----------------------------------------------------------------------------------------------------------------------------------------
+
+TASKS:
+Exercise
+Guided meditation
+Drink more water
+An act of kindness (Today offer your seat to someone…. , Today hold the door for someone…. , Today talk to a new person…..)
+Learn a new language
+New hobby
+Try this hangout place
+Try this new dish
+Try this new ice-cream flavour
+Practise gratitude (Today, be grateful for ….., Today say thank you to this person in your life …., Today tell your parents you love them….. )
+Practise Journaling
+Read this article
+Today keep a conscious check on your thoughts….
+Today you are allowed max 3 negative thoughts….
+Changing some habits - do this for x no. of days….
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+FLOW: 
+1. Sign up: Username, name, email, password, age 
+2. How are you? - mood entry
+3. Set some goals (max 3)
+4. Suggest tracks
+5. Show progress (daily, weekly, monthly)
