@@ -9,13 +9,16 @@ class User(models.Model):
 
 class Mood(models.Model):
     user = models.ForeignKey(User)
+# one user can have multiple moods, but one mood can only be connected to one user
     timestamp = models.DateTimeField()
     mood_entry = models.CharField()
 
 
 class Activity(models.Model):
     user = models.ForeignKey(User)
+# one user can have multiple activities, but one activity can only be connected to one user
     timestamp = models.DateTimeField()
     activity = models.CharField()
-    mood = models.ForeignKey(Mood)
+    mood = models.ForeignKey(Mood) 
+# one mood can be connected to multiple activities, but one activity can only be connected to one mood
 
