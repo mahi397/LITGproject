@@ -8,12 +8,14 @@ class User(models.Model):
 
 
 class Mood(models.Model):
-    userid = models.IntegerField(primary_key = True)
-    timestamp = models.DateTimeField(primary_key = True)
+    user = models.ForeignKey(User)
+    timestamp = models.DateTimeField()
     mood_entry = models.CharField()
 
 
-class Acitivity(models.Model):
-    userid = models.IntegerField(primary_key = True)
-    timestamp = models.DateTimeField(primary_key = True)
+class Activity(models.Model):
+    user = models.ForeignKey(User)
+    timestamp = models.DateTimeField()
     activity = models.CharField()
+    mood = models.ForeignKey(Mood)
+
