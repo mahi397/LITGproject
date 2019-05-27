@@ -8,17 +8,17 @@ class User(models.Model):
 
 
 class Mood(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 # one user can have multiple moods, but one mood can only be connected to one user
     timestamp = models.DateTimeField()
-    mood_entry = models.CharField()
+    mood_entry = models.CharField(max_length = 20)
 
 
 class Activity(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
 # one user can have multiple activities, but one activity can only be connected to one user
     timestamp = models.DateTimeField()
-    activity = models.CharField()
-    mood = models.ForeignKey(Mood) 
+    activity = models.CharField(max_length = 50)
+    mood = models.ForeignKey(Mood, on_delete=models.CASCADE) 
 # one mood can be connected to multiple activities, but one activity can only be connected to one mood
 
