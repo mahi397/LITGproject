@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <form method = "POST">
+      {% csrf_token %}
+
+      <h3>What are your self-care goals? Select up to 3.</h3>
+
+      <table>
+        {{form.as_table}}
+      </table>
+      <input type = "submit" value = "Go!">
+      
+  </form>
+{% endblock %}
