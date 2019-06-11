@@ -7,6 +7,12 @@ from .forms import MoodForm
 from .forms import ActivityForm
 from .forms import GoalForm
 
+from .models import User
+from .models import Mood
+from .models import Activity
+
+from datetime import datetime
+
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -20,6 +26,9 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
+
+def homepage(request):
+    return render(request, 'home.html')
 
 def askGoals(request):
     if request.method == 'POST':
@@ -43,7 +52,12 @@ def askMood(request):
         form = MoodForm(request.POST)
         if form.is_valid():
             mood = form.cleaned_data['mood']
-            #store in db?
+            #store in db
+            m = Mood(
+                user = User(userid=login.user, username=login.username, password=login.raw_password), 
+                timestamp = datetime.now(), 
+                mood_entry = mood)
+            m.save()
             return HttpResponseRedirect('/accounts/myactivities')
     else:
         form = MoodForm()
@@ -55,7 +69,15 @@ def askActivity(request):
         if form.is_valid():
             activity = form.cleaned_data['activity']
             #store in db
-            return HttpResponseRedirect('/tracksforyou.html') #--error.
+            a = Activity(user = User(userid=login.user, username=login.username, password=login.raw_password), 
+                timestamp = datetime.now(), 
+                activity = activity, 
+                mood = Mood.mood_entry)
+            a.save()
+            return HttpResponseRedirect('/accounts/mydashboard')  
     else:
         form = ActivityForm()
     return render(request, 'activityform.html', {'form': form})
+
+def dashboard(request):
+    return render(request, 'dashboard.html')
