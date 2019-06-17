@@ -53,11 +53,13 @@ def askMood(request):
         form = MoodForm(request.POST)
         if form.is_valid():
             mood = form.cleaned_data['mood']
+            user = User.objects.get(pk=request.user.id)
             #store in db
-            m = Mood(
-                user = User(userid=login.user, username=login.username, password=login.raw_password),
-                timestamp = datetime.now(),
-                mood_entry = mood)
+            m = Mood(user=user, timestamp = datetime.now(), mood_entry = mood)
+            # m = Mood(
+            #     user = get_user_model(),
+            #     timestamp = datetime.now(),
+            #     mood_entry = mood)
             m.save()
             return HttpResponseRedirect('/accounts/myactivities')
     else:

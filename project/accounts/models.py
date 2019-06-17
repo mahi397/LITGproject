@@ -15,6 +15,8 @@ class Mood(models.Model):
 # one user can have multiple moods, but one mood can only be connected to one user
     timestamp = models.DateTimeField(default = datetime.now)
     mood_entry = models.CharField(max_length = 20)
+    def __unicode__(self):
+        return self.description
 
 
 class Activity(models.Model):
