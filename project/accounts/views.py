@@ -1,5 +1,6 @@
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
@@ -39,8 +40,8 @@ def askGoals(request):
         if form.is_valid():
             # process data, insert into DB, generate email,etc
             goals = form.cleaned_data['goals']
-            
-            # redirect to a new url:    
+
+            # redirect to a new url:
             return HttpResponseRedirect('/accounts/mymood')
 
     else:
@@ -79,7 +80,7 @@ def askActivity(request):
                 activity = activity, 
                 mood = Mood.mood_entry)
             a.save()
-            return HttpResponseRedirect('/accounts/mydashboard')  
+            return HttpResponseRedirect('/accounts/mydashboard')
     else:
         form = ActivityForm()
     return render(request, 'activityform.html', {'form': form})
