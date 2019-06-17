@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+<!-- {% block title %}Your Mood{% endblock %} -->
+
+{% block content %}
+  <form method = "POST">
+      {% csrf_token %}
+
+      <h3>How are you today?</h3>
+
+      <table>
+        {{form.as_table}}
+      </table>
+      <input type = "submit" value = "Go!">
+      
+  </form>
+{% endblock %}
