@@ -1,5 +1,6 @@
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 
@@ -38,8 +39,8 @@ def askGoals(request):
         if form.is_valid():
             # process data, insert into DB, generate email,etc
             goals = form.cleaned_data['goals']
-            
-            # redirect to a new url:    
+
+            # redirect to a new url:
             return HttpResponseRedirect('/accounts/mymood')
 
     else:
@@ -54,8 +55,8 @@ def askMood(request):
             mood = form.cleaned_data['mood']
             #store in db
             m = Mood(
-                user = User(userid=login.user, username=login.username, password=login.raw_password), 
-                timestamp = datetime.now(), 
+                user = User(userid=login.user, username=login.username, password=login.raw_password),
+                timestamp = datetime.now(),
                 mood_entry = mood)
             m.save()
             return HttpResponseRedirect('/accounts/myactivities')
@@ -69,12 +70,12 @@ def askActivity(request):
         if form.is_valid():
             activity = form.cleaned_data['activity']
             #store in db
-            a = Activity(user = User(userid=login.user, username=login.username, password=login.raw_password), 
-                timestamp = datetime.now(), 
-                activity = activity, 
+            a = Activity(user = User(userid=login.user, username=login.username, password=login.raw_password),
+                timestamp = datetime.now(),
+                activity = activity,
                 mood = Mood.mood_entry)
             a.save()
-            return HttpResponseRedirect('/accounts/mydashboard')  
+            return HttpResponseRedirect('/accounts/mydashboard')
     else:
         form = ActivityForm()
     return render(request, 'activityform.html', {'form': form})
