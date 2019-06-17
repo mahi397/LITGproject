@@ -1,12 +1,12 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 from datetime import datetime
 
 # Create your models here.
-class User(models.Model):
-    userid = models.AutoField(primary_key = True)
-    username = models.CharField(max_length = 20)
-    password = models.CharField(max_length = 20)
+# class User(models.Model):
+#     userid = models.AutoField(primary_key = True)
+#     username = models.CharField(max_length = 20)
+#     password = models.CharField(max_length = 20)
 
 
 class Mood(models.Model):
@@ -14,7 +14,8 @@ class Mood(models.Model):
 # one user can have multiple moods, but one mood can only be connected to one user
     timestamp = models.DateTimeField(default = datetime.now)
     mood_entry = models.CharField(max_length = 20)
-
+    def __unicode__(self):
+        return self.description
 
 class Activity(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)

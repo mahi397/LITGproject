@@ -2,6 +2,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
 
 from .forms import MoodForm
 from .forms import ActivityForm
@@ -52,11 +53,13 @@ def askMood(request):
         form = MoodForm(request.POST)
         if form.is_valid():
             mood = form.cleaned_data['mood']
+            user = User.objects.get(pk=request.user.id)
             #store in db
-            m = Mood(
-                user = User(userid=login.user, username=login.username, password=login.raw_password), 
-                timestamp = datetime.now(), 
-                mood_entry = mood)
+            m = Mood(user=user, timestamp = datetime.now(), mood_entry = mood)
+            # m = Mood(
+            #     user = get_user_model(),
+            #     timestamp = datetime.now(),
+            #     mood_entry = mood)
             m.save()
             return HttpResponseRedirect('/accounts/myactivities')
     else:
@@ -68,8 +71,10 @@ def askActivity(request):
         form = ActivityForm(request.POST)
         if form.is_valid():
             activity = form.cleaned_data['activity']
+            user = User.objects.get(pk=request.user.id)
             #store in db
-            a = Activity(user = User(userid=login.user, username=login.username, password=login.raw_password), 
+            a = Activity(
+                user = user, 
                 timestamp = datetime.now(), 
                 activity = activity, 
                 mood = Mood.mood_entry)
