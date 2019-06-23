@@ -1,9 +1,9 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 from datetime import datetime
 from django.contrib.auth.models import User
 
-# # Create your models here.
+# Create your models here.
 # class User(models.Model):
 #     userid = models.AutoField(primary_key = True)
 #     username = models.CharField(max_length = 20)
@@ -17,7 +17,6 @@ class Mood(models.Model):
     mood_entry = models.CharField(max_length = 20)
     def __unicode__(self):
         return self.description
-
 
 class Activity(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
