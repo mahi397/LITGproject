@@ -1,18 +1,16 @@
 {% extends 'base.html' %}
+{% load materializecss %}
 
 {% block content %}
   <form method = "POST">
       {% csrf_token %}
 
-      <h3>Update your activities</h3>
+      <h3>Tell us your preferred genres</h3>
 
       <table>
-        {{form.as_p}}
+          {{ form.p|materializecss }}
       </table>
       
-      <button class="btn waves-effect waves-light" type="submit" name="action">Suggest me something to do!
-          <i class="material-icons right"></i>
-      </button>
-      
+      <button type="submit" class="save btn btn-default">Go!</button>
   </form>
 {% endblock %}
