@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
-from django.contrib.auth.models import User
 
 # Create your models here.
 # class User(models.Model):
@@ -18,6 +17,7 @@ class Mood(models.Model):
     def __unicode__(self):
         return self.description
 
+'''
 class Activity(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
 # one user can have multiple activities, but one activity can only be connected to one user
@@ -25,3 +25,14 @@ class Activity(models.Model):
     activity = models.CharField(max_length = 50)
     mood = models.ForeignKey(Mood, on_delete = models.CASCADE)
 # one mood can be connected to multiple activities, but one activity can only be connected to one mood
+'''
+
+class PrefGenre(models.Model):
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
+# one user can have multiple preferred genres, but one genre can only be connected to one user
+    timestamp = models.DateTimeField(default = datetime.now)
+    genre = models.CharField(max_length = 50)
+    mood = models.ForeignKey(Mood, on_delete = models.CASCADE)
+# one mood can be connected to multiple genres, but one genre can only be connected to one mood
+
+    
