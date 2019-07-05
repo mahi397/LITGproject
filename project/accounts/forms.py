@@ -1,6 +1,5 @@
 from django import forms
-
-from .widgets import ListTextWidget
+# from .widgets import ListTextWidget
 
 GOAL_CHOICES = [
     ('1', 'Think Positive'),
@@ -20,6 +19,7 @@ MOOD_CHOICES = [
     ('awful', 'Awful ;_;'), 
 ]
 
+'''
 ACTIVITY_CHOICES = [
     ('1', 'work'),
     ('2', 'relax'),
@@ -35,6 +35,27 @@ ACTIVITY_CHOICES = [
     ('12', 'sleeping'),
     ('13', 'social media'),
 ]
+'''
+
+GENRE_CHOICES = [
+    ('action', 'Action'),
+    ('adventure', 'Adventure'),
+    ('animation', 'Animation'),
+    ('tragedy', 'Tragedy'),
+    ('feelgood', 'Feel Good'),
+    ('inspirational', 'Inspirational'),
+    ('comedy', 'Comedy'),
+    ('crime', 'Crime / detective / spy'),
+    ('documentary', 'Documentary'),
+    ('drama', 'Drama'),
+    ('horror', 'Horror'),
+    ('fantasy', 'Fantasy'),
+    ('historical', 'Historical'),
+    ('musical', 'Musical'),
+    ('romance', 'Romance'),
+    ('sci-fi', 'Science Fiction'),
+    ('thriller', 'Thriller / Suspense')
+]
 
 def validate_goal_count(value):
       count = len(value)
@@ -48,10 +69,12 @@ class GoalForm(forms.Form):
 class MoodForm(forms.Form):
     mood = forms.CharField(widget = forms.RadioSelect(choices = MOOD_CHOICES), required = True)
 
-class ActivityForm(forms.Form):
-    activity = forms.MultipleChoiceField(required = True, choices = ACTIVITY_CHOICES, 
-            widget = forms.CheckboxSelectMultiple) 
-
+class GenreForm(forms.Form):
+    # activity = forms.MultipleChoiceField(required = True, choices = ACTIVITY_CHOICES, 
+    #         widget = forms.CheckboxSelectMultiple) 
+    genre = forms.MultipleChoiceField(required = True, choices = GENRE_CHOICES, 
+            widget = forms.CheckboxSelectMultiple, label = 'What genre do you prefer when you feel such?')
+    
 
 '''
    char_field_with_list = forms.CharField(required = True)

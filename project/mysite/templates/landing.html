@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    {% block css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../static/styles.css">
+    {% endblock css %}
+</head>
+
+<body class="pink lighten-5">
+    <nav class="nav-wrapper pink darken-4">
+      <div class="container">
+          <a href="#" class="brand-logo">Moodie</a>
+          <ul class="right">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+          </ul>
+      </div>
+    </nav>
+
+    <div class="content container">
+        <div class="row">
+            <div class="col-s12-16">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="../static/img/p1.jpg" alt="">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">About</span>
+                        <p>
+                            A self-care app to help cheer you up! Feeling low? Had a bad day? Bitter experience?
+                            No worries. Come, share. Sign up!
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <button class="btn"><a href = "{% url 'signup' %}">Sign Up!</a></button>
+                    </div>
+                </div>
+
+                <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Features</span>
+                            <p>
+                                A daily mood-tracker and movie suggestion system based on user's choice of genre.
+                                Log in to try!
+                            </p>
+                        </div>
+                        <div class="card-action">
+                                <button class="btn"><a href = "{% url 'login' %}">Log In!</a></button>
+                        </div>
+                    </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+    {% block javascript %}
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js" integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+
+    <script>
+    $(document).ready(function(){
+
+      // Initialize materialize data picker
+      $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
+      $('select').formSelect();
+
+    });
+    </script>
+    {% endblock javascript %}
+</body>
+</html>

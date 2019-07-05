@@ -1,29 +1,57 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% block title %}<title>Base</title>{% endblock %}
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
-  <!-- Add additional CSS in static file -->
-  <!-- {% load static %}
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}"> --> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    {% block css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../static/styles.css">
+    {% endblock css %}
 </head>
-<body>
-  <!-- <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-2">
-        {% block sidebar %} -->
-          <!-- <ul class="sidebar-nav"> -->
-          <!-- <ul>  
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-            <li><a href = "{% url 'password_reset' %}">Reset Password</li>
-          </ul> -->
-        <!-- {% endblock %} -->
+
+<body class="pink lighten-5">
+    <nav class="nav-wrapper pink darken-4">
+      <div class="container">
+          <a href="#" class="brand-logo">Moodie</a>
+          <ul class="right">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+          </ul>
       </div>
-      <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
+    </nav>
+
+    <div class="content container">
+        <div class="row">
+            <div class="col-sm-10 ">
+              {% block content %}
+              {% endblock %}
+            </div>
+        </div>
     </div>
-  </div>
+    
+    {% block javascript %}
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js" integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE=" crossorigin="anonymous"></script>
+
+    <script>
+    $(document).ready(function(){
+
+      // Initialize materialize data picker
+      $('.datepicker').datepicker({'format': 'yyyy-mm-dd'});
+      $('select').formSelect();
+
+    });
+    </script>
+    {% endblock javascript %}
 </body>
 </html>

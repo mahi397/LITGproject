@@ -1,12 +1,10 @@
 {% extends 'base.html' %}
 
-<!-- {% block title %}Login{% endblock %} -->
-
 {% block content %}
 <h2>Login</h2>
 <form method = "post">
   {% csrf_token %}      <!--for security; to prevent a CSRF attack-->
-  {{ form.as_p }}       <!--The form’s contents are output between paragraph tags-->
-  <button type = "submit">Login</button>
+  {{ form.as_p }}      <!--The form’s contents are output between paragraph tags-->
+  <button type="submit" class="save btn btn-default">Go!</button>
 </form>
 {% endblock %}

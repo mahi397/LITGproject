@@ -1,16 +1,15 @@
 {% extends "base.html" %}
-<!-- {% block title %}Your Mood{% endblock %} -->
-
+{% load static %}
 {% block content %}
-  <form method = "POST">
+  <form method = "POST" class="site-form">
       {% csrf_token %}
 
       <h3>How are you today?</h3>
 
       <table>
-        {{form.as_table}}
+        {{form.as_p}} 
       </table>
-      <input type = "submit" value = "Go!">
+      <button type="submit" class="save btn btn-default">Go!</button>
       
   </form>
 {% endblock %}

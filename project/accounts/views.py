@@ -80,31 +80,33 @@ def askGenre(request):
         form = GenreForm()
     return render(request, 'genreform.html', {'form': form})
 
-
 def suggestTodo(request):
-    if(request.method == 'GET'):
-        user = User.objects.get(pk=request.user.id)
-        mood = Mood.objects.latest('timestamp')
-        genre = PrefGenre.objects.latest('timestamp')
+    return render(request, 'suggestion.html')
 
-        if(mood == 'fine' or mood == 'great'):
-            todo('fine', genre)
-        else:
-            todo('notsofine', genre)
+# def suggestTodo(request):
+#     if(request.method == 'GET'):
+#         user = User.objects.get(pk=request.user.id)
+#         mood = Mood.objects.latest('timestamp')
+#         genre = PrefGenre.objects.latest('timestamp')
+
+#         if(mood == 'fine' or mood == 'great'):
+#             todo('fine', genre)
+#         else:
+#             todo('notsofine', genre)
 
 
-def todo(moodclass, genre):
-    path = r'C:\Users\HP\Desktop\LITG\LITGproject\project\accounts\genre_data.csv'
-    with open(path,'r', encoding = 'utf-8') as csvfile:
+# def todo(moodclass, genre):
+#     path = r'C:\Users\HP\Desktop\LITG\LITGproject\project\accounts\genre_data.csv'
+#     with open(path,'r', encoding = 'utf-8') as csvfile:
         
-        df = pd.read_csv(csvfile)
-        col = df['genres'].apply(literal_eval)
+#         df = pd.read_csv(csvfile)
+#         col = df['genres'].apply(literal_eval)
 
-        # print(type(col))
-        # t = eval(col)
-        for x in col:
-            req_genre = x['name']
-            print(req_genre)
+#         # print(type(col))
+#         # t = eval(col)
+#         for x in col:
+#             req_genre = x['name']
+#             print(req_genre)
         
 
 
@@ -113,4 +115,6 @@ def dashboard(request):
     return render(request, 'dashboard.html')
 
 
+def landing(request):
+    return render(request, 'landing.html')
 
