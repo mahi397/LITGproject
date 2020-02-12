@@ -1,4 +1,4 @@
-Django==2.0.13
+Django==2.2.10
 django-material-widgets==1.0.0b3
 django-materializecss-form==1.1.14
 numpy==1.16.4
